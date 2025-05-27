@@ -1,47 +1,10 @@
----
-# notes support optional frontmatter
-title: "Hello!"
----
+Trong ghi chú này, chúng ta sẽ xây dựng một chiếc máy tính thật sự. Dưới đây là kiến trúc Von Neumann, là kiến trúc máy tính (có lẽ là) phổ biến nhất. Phần học này sẽ được viết dưới góc nhìn của một người lập trình viên chứ không phải là một chuyên viết thiết kế phần cứng. Chắc chắn sẽ còn sai sót, mọi người có thể góp ý để mình cải thiện về vấn đề này.
+![[img/Pasted image 20250527090242.png]]
+Các bộ phận của một chiếc máy tính dựa trên kiến trúc Von Neumann bao gồm: [[CPU]] (Central Processing Unit hay bộ xử lý trung tâm, bao gồm [[Arithmetic Logic Unit]], [[Register]] với [[Control Unit]]), [[Memory]] (Bao gồm data memory với instruction memory) và [[Input & Output]] (Đưa input vào để máy tính xử lý và trả output ra sau khi xử lý).
 
-## Hello!
+Chúng ta sẽ bắt đầu bằng cách tìm hiểu về nền tảng của toàn bộ hệ thống này: các [[Cổng Logic]] và [[Boolean Algebra]]. Các cổng Logic cơ bản sau đó sẽ được sử dụng để xây dựng lên các hành phần khác trong máy tính.
 
-This is an obsidian note, it can link to other notes via wikilinks (see: [[Configuration is bloat]] and [[It handles subdirectories]])
+Hai loại chip cơ bản là [[Combinational chips]] (Thực hiện phần tính toán và xử lý dữ liệu), và [[Sequential chips]] (Lưu trữ dữ liệu theo thời gian).
 
-We can do code highlighting
+Hai phần nâng cao hơn chút là: [[Machine Language]] và [[Assembly]]
 
-```python
-import foo from bar
-def baz():
-	bar.qux()
-```
-
-We can handle inline $2+2$ and display math
-
-$$
-\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots = \sum_{k=0}^\infty \frac{x^{2k + 1}}{(2k+1)!}
-$$
-
-Be careful! inline double dollars `$$foo$$` render as inline, see [issue 13](https://github.com/UlisseMini/oth/issues/13). If you forget you'll receive a warning $$2 + 2$$
-
-Images work fine
-![[Pasted image 20221103224759.png]]
-
-Javascript code annotated with `run` will be executed, and it's results pasted in. This
-
-    ```js run
-    import fs from "fs-extra";
-
-    const files = await fs.readdir(".");
-    const listBody = files.map(f => `<li>${f}</li>`).join("\n");
-    export const markdown = `Files:\n<ul>${listBody}</ul>`;
-    ```
-
-Becomes this
-
-```js run
-import fs from "fs-extra";
-
-const files = await fs.readdir(".");
-const listBody = files.map((f) => `<li>${f}</li>`).join("\n");
-export const markdown = `Files:\n<ul>${listBody}</ul>`;
-```
