@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Arithmetic Logic Unit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<p>Là một thành phần trong <a class="internal new" href="cpu">CPU</a>, thực hiện các nhiệm vụ liên quan đến tính toán (<a class="internal new" href="arithmetic-logic">Arithmetic Logic</a>). Được xây dựng từ các <a class="internal new" href="adder-chip">Adder Chip</a>. The (Hack) ALU computes a ﬁxed set of functions <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>u</mi><mi>t</mi><mo>=</mo><mi>f</mi><mi>i</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">out=fi(x, y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span> where x and y are the chip’s two 16-bit inputs, out is the chip’s 16-bit output, and fi is an arithmetic or logical function selected from a ﬁxed repertoire of eighteen possible functions (Ở đây ngữ cảnh là Hack ALU, còn lại thì tương tự).
+<img class="internal" src="img/Pasted image 20250527091933.png">
+6 cái mũi tên ở hướng trên tượng trưng cho 6 control bits (We instruct the ALU which function to compute by setting six input bits, called control bits, to selected binary values). Dưới đây là bảng cho 6 control bits ở trên
+<img class="internal" src="img/Pasted image 20250527092413.png">
+Còn một phần nữa là cái Output (Không nhớ chính xác là nó để làm gì):</p>
+<pre><code class="hljs language-sql">zr <span class="hljs-operator">/</span><span class="hljs-operator">/</span> <span class="hljs-literal">True</span> iff <span class="hljs-keyword">out</span><span class="hljs-operator">=</span><span class="hljs-number">0</span>
+ng <span class="hljs-operator">/</span><span class="hljs-operator">/</span> <span class="hljs-literal">True</span> iff <span class="hljs-keyword">out</span><span class="hljs-operator">&#x3C;</span><span class="hljs-number">0</span>
+</code></pre>
+</body>
+</html>

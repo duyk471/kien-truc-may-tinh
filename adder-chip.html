@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Adder Chip</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<p>Adder: a chip designed to add two integers
+<img class="internal" src="img/Pasted image 20250527090759.png"></p>
+<ul>
+<li>Half adder: designed to add 2 bits</li>
+<li>Full adder: designed to add 3 bits (Về cơ bản là Half Adder nhưng có lưu thêm overflow bit khi thực hiện tính toán: <a class="internal new" href="arithmetic-logic">Arithmetic Logic</a>)</li>
+<li>Adder: designed to add two n-bit numbers.
+Một số khái niệm khác cần nhớ (Cái này dùng trong implementation thôi...):</li>
+<li>sum = LSB of a + b</li>
+<li>carry = MSB of a + b</li>
+</ul>
+<h3>Half adder</h3>
+<p><img class="internal" src="img/Pasted image 20250527091707.png">
+Chi để thêm hai số, mà không tính phần dư (carry)</p>
+<h3>Full adder</h3>
+<p><img class="internal" src="img/Pasted image 20250527091741.png">
+Về cơ bản là half adder, nhưng c sẽ chứa cả carry bit từ phép toán half adder trước nữa!</p>
+<h3>Adder</h3>
+<p><img class="internal" src="img/Pasted image 20250527091833.png">
+Implementation: array of full-adder gates.</p>
+<p>Từ các chip này chúng ta có thể xây dựng một <a class="internal new" href="arithmetic-logic-unit">Arithmetic Logic Unit</a> hoàn chỉnh, chắc vậy.</p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cổng Logic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<p><strong>Định nghĩa:</strong> Là một thiết bị để implement boolean function Boolean function bao gồm (Được gọi là cổng logic với implementation cho hàm f với n input pins và m output pins):</p>
+<ul>
+<li>Hàm f</li>
+<li>n biến</li>
+<li>m binary results
+Và giống như các hàm Boolean phức tạp có thể được biểu diễn sử dụng các hàm cơ bản, các cổng phức tạp được tạo nên từ các cổng cơ bản. Các gates đơn giản nhất được làm từ thiết bị bật tắt (switching devices) siêu đơn giản có tên là transistors, được nối các kiểu con đà điểu để thành một cái cổng phức tạp hơn.</li>
+</ul>
+<p><img class="internal" src="img/Pasted image 20250526204839.png"></p>
+<h4>Primitive and Composite Gates</h4>
+<p>Hai kiểu cổng là primitive gate (Kiểu and, or, nand) và composite gate (Các kiểu cổng phức tạp hơn, kết hợp giữa nhiều cổng primitive với nhau). Vì tất cả các cổng logic đều có cùng input and output semantics (0s và 1s), chúng có thể được nối với nhau, tạo ra composite gates có độ phức tạp khác nhau.
+<img class="internal" src="img/Pasted image 20250526205037.png">
+Đây là một ví dụ đơn giản về gate logic, còn được gọi là logic design.</p>
+<p>Chúng ta thấy rằng bất kỳ cổng logic nào đã cho đều có thể được xem từ hai khía cạnh khác nhau: external và internal. Phía bên phải của hình đưa ra internal architecture, hay implementation, của gate, trong khi phía bên trái chỉ hiển thị gate interface, cụ thể là các input and output pins mà nó tương tác. Phần trước thì phù hợp cho những người <em>sử dụng</em>, chỉ quan tâm về cái <em>what</em> hay <em>nó làm cái gì</em>. Còn phần sau thì dành cho các chế thiết kế phần cứng để hiểu về cách nó vận hành, cách mà nó <em>được implemented</em>.</p>
+<p>Tóm lại, nghệ thuật của logic design có thể được mô tả thế này: <em>Cho một gate specification (interface), tìm một cách hiệu quả để implement nó sử dụng các gates khác đã được implemented trước đó</em>.</p>
+<h4>Cổng Mux &#x26; Demux</h4>
+<p>Multiplexor A multiplexor is a three-input gate that uses one of the inputs, called "selection bit" to select and output one of the other two inputs, called "data bits"
+<img class="internal" src="img/Pasted image 20250526205010.png"></p>
+</body>
+</html>

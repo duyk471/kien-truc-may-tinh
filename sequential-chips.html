@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sequential chips</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<p>Combinational chips: operate on data only; provide calculation services (e.g. Nand … ALU) -> Để xây dựng những chức năng xử lý quan trọng như là ALU.  Nhưng chúng không thể duy trì state (store and recall values). Vậy nên, cần có memory để lưu trữ dữ liệu theo thời gian. These memory elements are built from sequential chips.</p>
+<h3>Cái đồng hồ</h3>
+<p>In most computers, the passage of time is represented by a master clock that delivers a continuous train of alternating signals (alternates continuously between two phases labeled 0–1, low-high, tick-tock, etc) The elapsed time between the beginning of a ‘‘tick’’ and the end of the subsequent ‘‘tock’’ is called <strong>cycle</strong>.
+The current clock phase (tick or tock) is <em>represented by a binary signal</em>.</p>
+<blockquote>
+<p>Mỗi một cycle thường rơi vào khoảng 1/2 nanosecond
+<img class="internal" src="img/Pasted image 20250527084240.png"></p>
+</blockquote>
+<h3>Flip-flop</h3>
+<p>Về cơ bản thì flip-flop là "A fundamental state-keeping device". Trong Nand2Tetris thì sẽ sử dụng: data flip-flop (DFF)
+<img class="internal" src="img/Pasted image 20250527084143.png">
+<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>o</mi><mi>u</mi><mi>t</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">out(t) = in(t - 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">o</span><span class="mord mathnormal">u</span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">in</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span>
+<code>in</code> and <code>out</code> are the gate’s input and output values and t is the current clock cycle => DFF outputs the input value from the previous time unit.</p>
+</body>
+</html>

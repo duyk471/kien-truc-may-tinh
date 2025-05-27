@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Assembly</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<h3>Ngôn ngữ (Assembly)</h3>
+<p>Thay vì viết trực tiếp ngôn ngữ máy (Machine Language) để giao tiếp với ngôn ngữ, ta chuyển qua sử dụng <em>symbolic code</em>. Sẽ hay hơn khi viết dựa trên một số cú pháp được quy định sẵn kiểu LOAD R3,7 rather than 110000101000000110 000000000000111. The symbolic language is called <strong>assembly</strong>, and the translator program <strong>assembler</strong>.
+Cần phân biệt giữa variables và labels:</p>
+<ul>
+<li>Variables để lưu trữ giá trị</li>
+<li>Labels: one can declare the label loop to refer to the beginning of a certain code segment (Để đánh dấu chức năng của các code segment nhất định).
+Phân vùng kiểu dữ liệu &#x26; không phải mỗi instruction đều == 1 word, và tương tự, không phải bao giờ data type cũng chỉ chiếm đúng một word width. Giả sử <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mn>16</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">w=16bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">16</span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span></span></span></span></span> đi, thì một biến double (~64bit) sẽ chiếm 4 <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mi>o</mi><mi>r</mi><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">words</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span></span></span></span></span>, kiểu vậy.</li>
+</ul>
+<h3>Trình biên dịch (Assembler)</h3>
+<p>Mỗi họ vi xử lý có một bộ chỉ dẫn(<strong>instructions</strong>) riêng cho các hoạt động xử lý khác như nhập vào bàn phím, xuất thông tin ra màn hình và nhiều công việc khác. Những thiết lập chỉ dẫn này được gọi là '<strong>machine language instructions</strong> (Không nhất thiết phải theo đúng thứ tự):</p>
+<ul>
+<li>Parse the symbolic command into its underlying ﬁelds.</li>
+<li>For each ﬁeld, generate the corresponding bits in the machine language.</li>
+<li>Replace all symbolic references (if any) with numeric addresses of memory locations.</li>
+<li>Assemble the binary codes into a complete machine instruction.</li>
+</ul>
+<p>(Sẽ học viết Assembly sau.... chỉ là không biết là bao giờ thôi)</p>
+</body>
+</html>

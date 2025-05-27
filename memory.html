@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Memory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<h3>Khái niệm cơ bản về Memory</h3>
+<p>Memory: The term memory refers loosely to the collection of hardware devices that store data and instructions in a computer. All memories have the same structure: A continuous array of cells of some fixed width, also called words or locations, each having a unique address.</p>
+<h3>RAM</h3>
+<p>A direct-access memory unit, also called RAM, is an array of n w-<a class="internal new" href="bit">Bit</a> registers, equipped with direct access circuitry. The number of registers (n) and the width of each register (w) are called the memory’s <strong>size</strong> and <strong>width</strong>, respectively. Stacking together many <a class="internal new" href="register">Register</a> to form a Random Access Memory (RAM) unit. Implement cái RAM (Về cơ bản là một Stack chứa nhiều Registers) với một cơ chế đặc biệt khác để tra cứu dữ liệu dựa trên địa chỉ
+Modern computers typically employ 32- or 64-bit-wide RAMs whose sizes are up to hundreds of millions.
+<img class="internal" src="img/Pasted image 20250526205528.png"></p>
+<blockquote>
+<p>a classical RAM device accepts three inputs: a data input (<em>word</em>), an address in-put, and a load bit.</p>
+<p>The address speciﬁes which RAM register should be accessed in the current time unit. In the case of a read operation (load=0), the RAM’s outputimmediately emits the value of the selected register.</p>
+<p>In the case of a write operation (load=1), the selected memory register commits to the input value in the next time unit, at which point the RAM’s output will start emitting it.</p>
+</blockquote>
+<p><img class="internal" src="img/Pasted image 20250526205533.png">
+The basic design parameters of a RAM device are:</p>
+<ul>
+<li><strong>Data width của RAM</strong> thường là kích thước của một word.</li>
+<li>Size — the number of words in the RAM.</li>
+</ul>
+<h3>ROM</h3>
+<p>ROM, refer to Read-Only Memory which contains fixed instructions and retains information without power</p>
+</body>
+</html>

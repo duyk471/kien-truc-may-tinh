@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Machine Language</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="highlight.css">
+<link rel="stylesheet" href="katex.min.css">
+</head>
+<body>
+<h3>Rất chi là cơ bản</h3>
+<p>Ngôn ngữ máy là cách mà các lập trình viên <em>trò chuyện</em> với máy tính và để đưa ra các <em>instructions</em> cho nó. Có hai kiểu ngôn ngữ máy là: binary code (Kiểu viết thẳng là 00101000101) với symbolic code (Khởi nguyên là assembly, kiểu như <code>ADD R3 R2 R1</code>, nghĩa là, cộng R1 với R2 rồi lưu giá trị vào R3). One can specify machine language instructions either directly, as 1010001100011001, or symbolically, as, say, ADD R3,R1,R9.</p>
+<p>Để hiểu được instruction: The instruction set of the underlying hardware platform. For example, the language may besuch that each instruction consists of four 4-bit ﬁelds: The left-most field codes a CPU operation, and the remaining three ﬁelds represent the operation’s operands. Thus the previous command may code the operation set R3 to R1 + R9, depending of course on the hardware specification and the machine language syntax</p>
+<p>The symbolic notation is called assembly language, or simply <a class="internal new" href="assembly">Assembly</a>, and the program that translates from assembly to binary is called assembler.</p>
+<h3>Arithmetic and Logic Operations</h3>
+<pre><code class="hljs language-arduino">ADD R2,R1,R3 <span class="hljs-comment">// R2&#x3C;---R1+R3 where R1,R2,R3 are registers</span>
+ADD R2,R1,foo 
+<span class="hljs-comment">// R2&#x3C;---R1+foo where foo stands for the</span>
+<span class="hljs-comment">// value of the memory location pointed at by the user-defined label foo.</span>
+AND R1,R1,R2 <span class="hljs-comment">// ---bit wise And of R1 and R2</span>
+</code></pre>
+<h3>Memory Access</h3>
+<p><strong>Direct addressing</strong>: The most common way to address the memory is to express a speciﬁc address or use a symbol that refers to a speciﬁc address, as follows:</p>
+<pre><code class="hljs language-arduino">LOAD R1,<span class="hljs-number">67</span> <span class="hljs-comment">// R1 &#x3C;--- Memory[67]</span>
+<span class="hljs-comment">// Or, assuming that bar refers to memory address 67:</span>
+LOAD R1,bar <span class="hljs-comment">// R1 &#x3C;--- Memory[67]</span>
+</code></pre>
+<p><strong>Immediate addressing:</strong> This form of addressing is used to load constants— namely, load values that appear in the instruction code: Instead of treating the numeric ﬁeld that appears in the instruction as an address, we simply load the value of the ﬁeld itself into the register, as follows:</p>
+<pre><code class="hljs language-arduino">LOADI R1,<span class="hljs-number">67</span> <span class="hljs-comment">// R1---67</span>
+</code></pre>
+<p><strong>Indirect addressing</strong>: In this addressing mode the address of the required memory location is not hard-coded into the instruction; instead, the instruction speciﬁes a memory location that holds the required address. This addressing mode is used to handle pointers (Như kiểu trong C ấy, đặt một biến với kiểu dữ liệu có dấu * để biểu thị nó là một pointer).</p>
+<pre><code class="hljs language-sql"><span class="hljs-operator">/</span><span class="hljs-operator">/</span> <span class="hljs-keyword">Translation</span> <span class="hljs-keyword">of</span> x<span class="hljs-operator">=</span>foo[j] <span class="hljs-keyword">or</span> x<span class="hljs-operator">=</span><span class="hljs-operator">*</span>(foo<span class="hljs-operator">+</span>j):
+<span class="hljs-keyword">ADD</span> R1,foo,j <span class="hljs-operator">/</span><span class="hljs-operator">/</span> R1<span class="hljs-operator">&#x3C;</span><span class="hljs-comment">---foo+j</span>
+LOAD<span class="hljs-operator">*</span> R2,R1 <span class="hljs-operator">/</span><span class="hljs-operator">/</span> R2<span class="hljs-operator">&#x3C;</span><span class="hljs-comment">---Memory[R1]</span>
+STR R2,x <span class="hljs-operator">/</span><span class="hljs-operator">/</span> x<span class="hljs-operator">&#x3C;</span><span class="hljs-comment">---R2</span>
+</code></pre>
+<h3>Flow of control</h3>
+<p>While programs normally execute in a linear fashion, one command after the other, they also include occasional branches to locations other than the next command.</p>
+<p>Branching serves several purposes including:</p>
+<ul>
+<li>Repetition ( jump backward to the beginning of a loop)</li>
+<li>Conditional execution (if a Boolean condition is false, jump forward to the location after the ‘‘if-then’’ clause)</li>
+<li>Subroutine calling (jump to the ﬁrst command of some other code segment).</li>
+</ul>
+<p>Ví dụ cho phần code ở ngôn ngữ High-level</p>
+<pre><code class="hljs language-css">// <span class="hljs-selector-tag">A</span> while loop:
+while (R1>=<span class="hljs-number">0</span>) {
+	<span class="hljs-selector-tag">code</span> segment <span class="hljs-number">1</span>
+}
+<span class="hljs-selector-tag">code</span> segment <span class="hljs-number">2</span>
+</code></pre>
+<p>Low-level</p>
+<pre><code class="hljs language-arduino"><span class="hljs-comment">// Typical translation:</span>
+beginWhile:
+	JNG R1,endWhile <span class="hljs-comment">// If R1&#x3C;0 goto endWhile</span>
+	<span class="hljs-comment">// Translation of code segment 1 comes here</span>
+	JMP beginWhile <span class="hljs-comment">// Goto beginWhile</span>
+endWhile:
+<span class="hljs-comment">// Translation of code segment 2 comes here</span>
+</code></pre>
+</body>
+</html>
