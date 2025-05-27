@@ -6,7 +6,7 @@ Ngôn ngữ máy là cách mà các lập trình viên *trò chuyện* với má
 The symbolic notation is called assembly language, or simply [[Assembly]], and the program that translates from assembly to binary is called assembler.
 ### Arithmetic and Logic Operations
 
-```assembly
+```
 ADD R2,R1,R3 // R2<---R1+R3 where R1,R2,R3 are registers
 ADD R2,R1,foo 
 // R2<---R1+foo where foo stands for the
